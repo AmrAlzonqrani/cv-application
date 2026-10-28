@@ -1,0 +1,133 @@
+.temp-wrapper {
+  display: grid;
+  grid-template-areas: 
+  "name name name"
+  "contact separator profile"
+  "education separator profile"
+  "education separator work"
+  ;
+  grid-template-columns: 1fr 3px 2fr;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  h1, h2, h3 {
+    font-weight: var(--fw-bold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: var(--text-xl-header);
+    text-align: left;
+    margin-bottom: var(--space-4);
+  }
+  h2 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+  }
+  h3 {
+    font-size: var(--text-m);
+    margin-bottom: var(--space-2);
+  }
+  h4 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+  }
+  p {
+    max-width: 40ch;
+  }
+  section {
+    margin-bottom: var(--space-5);
+  }
+  .separator {
+    grid-area: separator;
+    background-color: var(--clr-bg-dark);
+  }
+}
+
+.edit-btn {
+  font-weight: var(--fw-bold);
+  position: fixed;
+  z-index: 1;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  
+  border-radius: 99px;
+  border: none;
+  background-color: var(--clr-accent);
+  color: var(--clr-text-secondary);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+
+  svg {
+    aspect-ratio: 1/1;
+    width: 1em;
+    fill: var(--clr-text-secondary)
+  }
+}
+
+.name {
+  grid-area: name;
+}
+
+.contact-section {
+  grid-area: contact;
+  li {
+    margin-bottom: var(--space-2);
+    font-weight: var(--fw-bold);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+}
+
+.education-section {
+  grid-area: education;
+}
+
+li:has(.decorative-line), .profile-para {
+    margin-left: var(--space-4);
+    margin-bottom: var(--space-4);
+    position: relative;
+}
+
+.decorative-line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: var(--clr-text-primary);
+    top: 5px;
+    left: -1rem;
+}
+
+.decorative-line::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 8px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--clr-text-primary);
+    left: -3px;
+    top: 0;
+}
+
+.decorative-line::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 8px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--clr-text-primary);
+    left: -3px;
+    bottom: 0;
+}
+
+@media print {
+  .edit-btn {
+    display: none;
+  }
+}

@@ -1,0 +1,221 @@
+form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  input,
+  textarea {
+    padding: var(--space-1);
+    border-radius: 8px;
+    border: 2px solid var(--clr-bg-dark);
+  }
+
+  input:user-invalid {
+    border: 2px solid var(--clr-warn);
+  }
+
+  input {
+    height: 2rem;
+  }
+
+  textarea {
+    height: 5rem;
+    resize: vertical;
+  }
+
+  h2 {
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--space-2);
+  }
+
+  label {
+    display: block;
+  }
+
+  .asterisk {
+    color: var(--clr-warn);
+  }
+}
+
+.form-sections {
+  flex: 1;
+  width: clamp(310px, 90vw, 700px);
+  padding: var(--space-2);
+  margin: var(--space-2) auto;
+  border-radius: 8px;
+}
+
+.form-section {
+  display: none;
+  height: 100%;
+}
+
+.form-section.active {
+  display: block;
+}
+
+.form-control {
+  margin-top: var(--space-2);
+
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
+.exp-section {
+  ul {
+    height: clamp(170px, 65vh, 800px);
+    overflow: auto;
+    scrollbar-width: thin;
+    display: grid;
+    gap: var(--space-2);
+    align-content: start;
+  }
+
+  li:not(.add-new) {
+    padding: var(--space-2);
+    background-color: var(--clr-bg-semi-dark);
+    border-radius: 8px;
+  }
+
+  .add-new button {
+    font-weight: var(--fw-bold);
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--clr-accent);
+    color: var(--clr-text-secondary);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .controls {
+    display: grid;
+    gap: var(--space-1);
+
+    label {
+      padding: 0 var(--space-1);
+      display: flex;
+      align-items: start;
+      flex-wrap: wrap;
+    }
+    input,
+    textarea {
+      flex: 1;
+      min-width: 170px;
+    }
+    span {
+      display: inline-block;
+      min-width: 9.5em;
+    }
+  }
+
+  li:has(.delete-btn) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    .delete-btn {
+      align-self: end;
+      grid-area: 1/2;
+      border: none;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: background-color 0.5s;
+      cursor: pointer;
+
+      svg {
+        fill: var(--clr-warn);
+        aspect-ratio: 1/1;
+        width: 32px;
+      }
+    }
+  }
+}
+
+.form-footer {
+  margin-top: auto;
+  background-color: var(--clr-bg-dark);
+  padding: var(--space-2);
+  margin-top: auto;
+}
+
+.form-nav {
+  width: clamp(310px, 70vw, 600px);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+.form-nav button:not([type="submit"]) {
+  padding: 0 var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  svg {
+    fill: var(--clr-bg);
+  }
+}
+
+.prev-section {
+  grid-area: 1/1;
+}
+
+.sections-indicator {
+  grid-area: 1/2;
+  padding: 16px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.next-section {
+  grid-area: 1/3;
+}
+
+.circle {
+  width: 12px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--clr-bg);
+}
+
+.circle.active {
+  background-color: var(--clr-accent);
+}
+
+.submit-btn {
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-accent);
+  color: var(--clr-text-secondary);
+  padding: var(--space-2) var(--space-3);
+  border: none;
+  border-radius: 8px;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+  will-change: transform;
+  transition:
+    background-color 0.5s,
+    color 0.5s,
+    transform 0.5s;
+
+  &:hover:not(:disabled),
+  &:focus-visible:not(:disabled) {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: var(--clr-bg);
+    color: var(--clr-bg-dark);
+  }
+}

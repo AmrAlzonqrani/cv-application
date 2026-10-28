@@ -1,1 +1,1 @@
-# cv-application
+# CV application

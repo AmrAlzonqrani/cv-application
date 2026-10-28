@@ -1,0 +1,40 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  display: block;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input {
+  line-height: 1.1;
+}
+
+ul,
+ol {
+  list-style: none;
+}
