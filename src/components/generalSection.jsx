@@ -7,12 +7,10 @@ function capitalizeFirstLetter(str) {
 function FormControl({ label, type, id, value, required = false }) {
   const [inputValue, setInputValue] = useState(value);
 
-  if(type === 'textarea') {
+  if (type === "textarea") {
     return (
       <div className="form-control">
-        <label htmlFor={id}>
-          {capitalizeFirstLetter(label)}:
-        </label>
+        <label htmlFor={id}>{capitalizeFirstLetter(label)}:</label>
         <textarea
           id={id}
           name={id}
@@ -20,7 +18,7 @@ function FormControl({ label, type, id, value, required = false }) {
           onChange={(e) => setInputValue(e.target.value)}
         ></textarea>
       </div>
-    )
+    );
   }
 
   return (

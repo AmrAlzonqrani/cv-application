@@ -72,7 +72,12 @@ export default function CvForm({ onSubmit, existingData }) {
     const data = Object.fromEntries(formData);
     const cvData = {};
 
-    cvData.general = { name: data.name, email: data.email, phone: data.phone, profile: data.profile };
+    cvData.general = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      profile: data.profile,
+    };
     cvData.education = extractEntitiesInfo(data, TYPES.education);
     cvData.work = extractEntitiesInfo(data, TYPES.work);
 

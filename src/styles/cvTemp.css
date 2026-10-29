@@ -1,15 +1,15 @@
 .temp-wrapper {
   display: grid;
-  grid-template-areas: 
-  "name name name"
-  "contact separator profile"
-  "education separator profile"
-  "education separator work"
-  ;
+  grid-template-areas:
+    "name name name"
+    "side separator main";
   grid-template-columns: 1fr 3px 2fr;
+  grid-template-rows: auto 1fr;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-4);
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-weight: var(--fw-bold);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -53,7 +53,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  
+
   border-radius: 99px;
   border: none;
   background-color: var(--clr-accent);
@@ -64,7 +64,7 @@
   svg {
     aspect-ratio: 1/1;
     width: 1em;
-    fill: var(--clr-text-secondary)
+    fill: var(--clr-text-secondary);
   }
 }
 
@@ -72,61 +72,66 @@
   grid-area: name;
 }
 
-.contact-section {
-  grid-area: contact;
-  li {
-    margin-bottom: var(--space-2);
-    font-weight: var(--fw-bold);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-  }
+.contact-section li {
+  margin-bottom: var(--space-2);
+  font-weight: var(--fw-bold);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
-.education-section {
-  grid-area: education;
-}
-
-li:has(.decorative-line), .profile-para {
-    margin-left: var(--space-4);
-    margin-bottom: var(--space-4);
-    position: relative;
+li:has(.decorative-line),
+.profile-para {
+  margin-left: var(--space-4);
+  margin-bottom: var(--space-4);
+  position: relative;
 }
 
 .decorative-line {
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: var(--clr-text-primary);
-    top: 5px;
-    left: -1rem;
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: var(--clr-text-primary);
+  top: 5px;
+  left: -1rem;
 }
 
 .decorative-line::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 8px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: var(--clr-text-primary);
-    left: -3px;
-    top: 0;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--clr-text-primary);
+  left: -3px;
+  top: 0;
 }
 
 .decorative-line::after {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 8px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    background-color: var(--clr-text-primary);
-    left: -3px;
-    bottom: 0;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--clr-text-primary);
+  left: -3px;
+  bottom: 0;
 }
 
 @media print {
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .temp-wrapper {
+    flex: 1;
+    border: 5px groove var(--clr-text-primary);
+    margin: var(--space-3);
+  }
+
   .edit-btn {
     display: none;
   }

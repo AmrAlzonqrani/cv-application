@@ -7,7 +7,7 @@ export default function App() {
   const [cvData, setCvData] = useState({ status: STATUSES.collecting });
 
   function handleFormSubmit(data) {
-    setCvData({...data, status: STATUSES.viewing});
+    setCvData({ ...data, status: STATUSES.viewing });
   }
 
   function handleEdit() {
